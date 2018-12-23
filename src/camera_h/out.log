@@ -1,0 +1,1 @@
+g++ -c -I/home/gavin/git_hub_sourcecode/my_git/3d_game_componet_dev/src/camera_h camera_mouse_move.cpp
