@@ -1,0 +1,43 @@
+1.OpenGL实现视频的水印、滤镜？OpenGL实现视频的剪裁、旋转？
+2.2D/3D物体的 旋转,平移,缩放? OpenGL图片滤镜与视频滤镜？
+
+  矩阵（Matrix）是一个按照长方阵列排列的复数或实数集合，最早来自于方程组的系数及常数所构成的方阵。在物理学中，矩阵于电路学、力学、光学和量子物理中都有应用；计算机科学中，三维动画制作也需要用到矩阵。 矩阵的运算是数值分析领域的重要问题。
+  OpenGL独立于操作系统，广泛应用在CAD、能源、娱乐、游戏开发、制造业、制药业、虚拟现实等行业。
+  OpenGL ES是OpenGL的子集，针对手机、PAD、游戏机等嵌入式系统设计。OpenGL ES是OpenGL的裁剪版，去除了四边形、多边形等复杂图元，这些图元不是绝对必要的特性。
+  OpenGL四种常用 2D 纹理变换(裁剪、翻转、旋转、缩放)，2D其核心思想就是调整纹理坐标和顶点坐标。
+裁剪、翻转、旋转这三种操作实际上都没有调整我们绘制的图形（都是“全屏”矩形），只是调整贴纹理的方式，而缩放则不调整贴纹理的方式（“全屏”纹理），它调整的是我们绘制的图形。
+  了解3D图形学相关的知识对我们理解和使用OpenGL进行开发将会大有帮助。
+
+> opengl给视频加水印、美白、滤镜
+ Android视频录制：1.断点续录，2.视频裁剪，3.加滤镜；
+ 滤镜两种方式可以实现，一种用软方案，录制的为yuv数据，然后缩放裁剪，滤镜处理，再编码，都采用cpu处理，另外一种硬加速实现，camera用surfacetexture,用opengl进行处理缩放和滤镜，之后直接编码，但需要4.3及以上才支持.
+ 视频的最基础和核心的功能就是视频录制和视频编辑功能。包括了手机视频录制、美白、加滤镜、加水印、给本地视频美白、加水印、加滤镜、视频裁剪、视频拼接和加bgm等等一系列音视频的核心操作。
+
+  在OpenGL的shader文件中，每个滤镜都需要两个shader文件，其中vertexShader是控制每个像素点的位置的，而fragmentShader就是控制每个像素点的颜色的。
+  美白算法 DigitalCameraEnhance（开源的GIMP软件中扣取）；色彩平衡是Photoshop中常用的一个功能.
+
+> OpenGl ES
+OpenGlesProject demo- https://github.com/pangrui201/OpenGlesProject
+安卓 OpenGL ES 2.0,2D 纹理的裁剪、翻转、旋转、缩放- https://blog.piasy.com/2017/10/06/Open-gl-es-android-2-part-3/
+a dumping ground for Android graphics & media hacks- https://github.com/Piasy/grafika/tree/dont_touch_fragment_coordinate/
+Android OpenGLES2.0（十）——OpenGL中的平移、旋转、缩放- https://blog.csdn.net/junzia/article/details/53154175
+OpenGL Demo（1）- https://blog.csdn.net/shareus/article/details/78463144
+利用FFmpeg视频录制微信小视频与其压缩处理 - https://github.com/supercoeus/small-video-record
+基于OpenGL的Android系统视频转换功能实现- https://blog.csdn.net/xipiaoyouzi/article/details/51568414?locationNum=3&fps=1
+
+使用gpuimage实现的本地视频添加滤镜- https://github.com/houshunwei/TestGpuImageFilter 
+Android视频编辑器（四）通过OpenGL给视频增加不同滤镜效果- https://blog.csdn.net/qqchenjian318/article/details/78396428
+Android视频编辑器（三）给本地视频加水印和美颜滤镜- https://blog.csdn.net/qqchenjian318/article/details/78274901
+Android的视频编辑器，包括了视频录制、剪切、增加bgm、美白、加滤镜、加水印等- https://github.com/qqchenjian318/VideoEditor-For-Android
+包含美颜等40余种实时滤镜相机，可拍照、录像、图片修改- https://github.com/wuhaoyu1990/MagicCamera
+Android视频编辑器（一）通过OpenGL预览、录制视频以及断点续录等- http://blog.csdn.net/qqchenjian318/article/details/77396653
+Android视频编辑器（二）预览、录制视频加上水印和美白磨皮效果- http://blog.csdn.net/qqchenjian318/article/details/78214662
+Android视频编辑器（三）给本地视频加水印和美颜滤镜- http://blog.csdn.net/qqchenjian318/article/details/78274901
+
+视频编辑器- https://github.com/qqchenjian318/VideoEditor-For-Android
+滤镜- https://github.com/BradLarson/GPUImage
+滤镜- https://github.com/wuhaoyu1990/MagicCamera
+谷歌工程师编写的一个音视频处理的项目grafika- https://github.com/google/grafika
+Android视频编辑器（四）通过OpenGL给视频增加不同滤镜效果- http://blog.csdn.net/qqchenjian318/article/details/78396428
+Android视频编辑器（五）音频编解码、从视频中分离音频、音频混音、音频音量调节等- http://blog.csdn.net/qqchenjian318/article/details/78586371
+Android 关于美颜/滤镜 从OpenGl录制视频的一种方案- https://www.jianshu.com/p/12f06da0a4ec
